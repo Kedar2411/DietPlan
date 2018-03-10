@@ -4,25 +4,50 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity
 {
 
-    DatabaseHelper helper=new DatabaseHelper(this);
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-       final EditText email = (EditText) findViewById(R.id.et_username);
+
+        Backendless.setUrl( Defaults.SERVER_URL );
+        Backendless.initApp( getApplicationContext(), Defaults.APPLICATION_ID, Defaults.API_KEY );
+
+        HashMap testObject = new HashMap<>();
+        testObject.put( "foo", "bar" );
+        Backendless.Data.of( "TestTable" ).save(testObject, new AsyncCallback<Map>() {
+            @Override
+            public void handleResponse(Map response) {
+                Log.d("ug", "handleResponse: ");
+            }
+
+            @Override
+            public void handleFault(BackendlessFault fault) {
+                Log.e( "MYAPP", "Server reported an error " + fault.getMessage() );
+            }
+        });
+
+
+        final EditText email = (EditText) findViewById(R.id.et_username);
         final EditText password = (EditText) findViewById(R.id.t_password);
         final Button Login = (Button) findViewById(R.id.login);
 
@@ -59,19 +84,9 @@ public class Login extends AppCompatActivity
                     }
                     else
                     {
-                        String str=email.getText().toString();
-                        String pass=password.getText().toString();
-                        String password1=helper.searchPass(str);
 
-                        if (pass.equals(password1))
-                        {
                             Toast.makeText(Login.this, "Logged In", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplication(),Profile.class));
-                        }
-                        else
-                        {
-                            Toast.makeText(Login.this, "email and password do not match", Toast.LENGTH_LONG).show();
-                        }
 
                     }
             }

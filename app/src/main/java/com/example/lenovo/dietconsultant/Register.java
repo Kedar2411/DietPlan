@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 
 public class Register extends AppCompatActivity {
 
-    DatabaseHelper helper=new DatabaseHelper(this);
     EditText name,age,weight,height,phone,email,cpassword,cnpassword;
     Button register;
     RadioButton male,female;
@@ -104,15 +103,6 @@ public class Register extends AppCompatActivity {
                 }
                 else
                 {
-                    RegisterData rd =new RegisterData();
-                    rd.setName(namestr);
-                    rd.setAge(agestr);
-                    rd.setWeight(weightstr);
-                    rd.setHeight(heightstr);
-                    rd.setEmail(emailstr);
-                    rd.setPhone(phonestr);
-                    rd.setPass(passstr);
-                    helper.insertdata(rd);
                     Toast.makeText(Register.this, "Registered Successfully.....!!!", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplication(), Login.class));
                 }
