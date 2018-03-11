@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundcolor"
-    tools:context="com.example.lenovo.dietconsultant.Profile">
+    tools:context="com.example.lenovo.dietconsultant.ProfileActivity">
 
     <Button
         android:id="@+id/dplan"

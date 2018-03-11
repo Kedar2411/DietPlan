@@ -3,11 +3,11 @@ package com.example.lenovo.dietconsultant;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AddDiet extends AppCompatActivity {
+public class AddfoodActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_diet);
+        setContentView(R.layout.activity_addfood);
     }
 }

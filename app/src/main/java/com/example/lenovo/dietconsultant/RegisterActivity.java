@@ -1,9 +1,6 @@
 package com.example.lenovo.dietconsultant;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +10,19 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import java.io.StringReader;
-import java.security.PrivateKey;
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
+
+    public static final String APP_ID="C40EF691-47BD-6935-FF77-8ED38FAAA200";
+    public static final String SECRET_KEY="E96746B1-1306-74F8-FFE1-DB1339651E00";
+    public static final String VERSION="4.4.17";
 
     EditText name,age,weight,height,phone,email,cpassword,cnpassword;
     Button register;
@@ -29,32 +33,45 @@ public class Register extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-         name = (EditText) findViewById(R.id.name);
-         age = (EditText) findViewById(R.id.age);
-         weight = (EditText) findViewById(R.id.weight);
-         height = (EditText) findViewById(R.id.height);
-         phone = (EditText) findViewById(R.id.phone);
-         email = (EditText) findViewById(R.id.email);
-         cpassword = (EditText) findViewById(R.id.cpassword);
-         cnpassword = (EditText) findViewById(R.id.cnpassword);
-         male=(RadioButton)findViewById(R.id.male);
-         female=(RadioButton)findViewById(R.id.female);
-         rg=(RadioGroup) findViewById(R.id.radiogroup);
-        register=(Button)findViewById(R.id.t_register);
 
-        final String namestr=name.getText().toString();
-        final String agestr=age.getText().toString();
-        final String weightstr=weight.getText().toString();
-        final String heightstr=height.getText().toString();
-        final String emailstr=email.getText().toString();
-        final String phonestr=phone.getText().toString();
-        final String passstr=cpassword.getText().toString();
+        Backendless.setUrl( Defaults.SERVER_URL );
+        Backendless.initApp( getApplicationContext(), Defaults.APPLICATION_ID, Defaults.API_KEY );
+
+
+        //email =(EditText)findViewById(R.id.email);
+        //cpassword=(EditText)findViewById(R.id.cpassword);
 
         register.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
+
+                String emailField= email.getText().toString();
+                String passwordField=cpassword.getText().toString();
+
+                BackendlessUser backendlessUser = new BackendlessUser();
+                backendlessUser.setPassword(passwordField);
+                backendlessUser.setEmail(emailField);
+                backendlessUser.setProperty("name",name);
+                backendlessUser.setProperty("age",age);
+                backendlessUser.setProperty("weight",weight);
+                backendlessUser.setProperty("height",height);
+                backendlessUser.setProperty("mobile_number",phone);
+                backendlessUser.setProperty("gender",rg);
+
+                Backendless.UserService.register(backendlessUser, new AsyncCallback<BackendlessUser>() {
+                    @Override
+                    public void handleResponse(BackendlessUser response) {
+                        Toast.makeText(getApplicationContext(),"You Registered..",Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+                        Toast.makeText(getApplicationContext(),"Registeration Failed..",Toast.LENGTH_LONG).show();
+                    }
+                });
+
 
                 if (!registerName(name.getText().toString()))
                 {
@@ -99,12 +116,12 @@ public class Register extends AppCompatActivity {
                 else
                 if (!Confirm(cpassword.getText().toString(),cnpassword.getText().toString()))
                 {
-                    Toast.makeText(Register.this, "Password do not match.....!!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Password do not match.....!!!", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    Toast.makeText(Register.this, "Registered Successfully.....!!!", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(getApplication(), Login.class));
+                    Toast.makeText(RegisterActivity.this, "Registered Successfully.....!!!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplication(), LoginActivity.class));
                 }
             }
             private boolean Confirm(String cpassword, String cnpassword)

@@ -3,24 +3,24 @@ package com.example.lenovo.dietconsultant;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Login extends AppCompatActivity
+public class LoginActivity extends AppCompatActivity
 {
 
     @Override
@@ -29,7 +29,8 @@ public class Login extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Backendless.setUrl( Defaults.SERVER_URL );
+
+       /* Backendless.setUrl( Defaults.SERVER_URL );
         Backendless.initApp( getApplicationContext(), Defaults.APPLICATION_ID, Defaults.API_KEY );
 
         HashMap testObject = new HashMap<>();
@@ -44,7 +45,7 @@ public class Login extends AppCompatActivity
             public void handleFault(BackendlessFault fault) {
                 Log.e( "MYAPP", "Server reported an error " + fault.getMessage() );
             }
-        });
+        });*/
 
 
         final EditText email = (EditText) findViewById(R.id.et_username);
@@ -52,10 +53,11 @@ public class Login extends AppCompatActivity
         final Button Login = (Button) findViewById(R.id.login);
 
 
-        //EditText a=(EditText)findViewById(R.id.et_username);
-        //String str=email.getText().toString();
-        //EditText b=(EditText)findViewById(R.id.t_password);
-        //final String pass=password.getText().toString();
+
+        EditText a=(EditText)findViewById(R.id.et_username);
+        String str=email.getText().toString();
+        EditText b=(EditText)findViewById(R.id.t_password);
+        final String pass=password.getText().toString();
 
         //final String password1=helper.searchPass(str);
 
@@ -80,26 +82,16 @@ public class Login extends AppCompatActivity
                     if (validateAdmin (email.getText().toString(),password.getText().toString())==1)
                     {
                         Toast.makeText(getApplication(),"WELCOME ADMIN",Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplication(),Admin.class));
+                        startActivity(new Intent(getApplication(),AdminActivity.class));
                     }
                     else
                     {
 
-                            Toast.makeText(Login.this, "Logged In", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplication(),Profile.class));
+                            Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplication(),ProfileActivity.class));
 
                     }
             }
-
-
-            /*private int login(String name, String password) {
-                if (name.isEmpty() || password.isEmpty()) {
-                    return 0;
-                } else if (name.equals("admin@gmail.com") && password.equals("admin123456")) {
-                    return 1;
-                }
-                return 0;
-            }*/
         });
     }
 
@@ -138,9 +130,10 @@ public class Login extends AppCompatActivity
                 return matcher.matches();
             }
 
-    public void gotoactivity_register(View v) {
-        Intent ActivityPage = new Intent(this, Register.class);
+    public void gotoactivity_register(View v)
+    {
+        Intent ActivityPage = new Intent(this, RegisterActivity.class);
         startActivity(ActivityPage);
-
+       // Toast.makeText(getApplicationContext(),"djavj",Toast.LENGTH_LONG).show();
     }
 }

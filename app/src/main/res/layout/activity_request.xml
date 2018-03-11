@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundcolor"
-    tools:context="com.example.lenovo.dietconsultant.Foodlist">
+    tools:context="com.example.lenovo.dietconsultant.FoodlistActivity">
 
     <TextView
         android:id="@+id/textView26"

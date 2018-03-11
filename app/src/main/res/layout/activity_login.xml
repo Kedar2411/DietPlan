@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundcolor"
     android:layout_gravity="center"
-    tools:context="com.example.lenovo.dietconsultant.Login"
+    tools:context="com.example.lenovo.dietconsultant.LoginActivity"
     tools:layout_editor_absoluteY="25dp">
 
     <EditText

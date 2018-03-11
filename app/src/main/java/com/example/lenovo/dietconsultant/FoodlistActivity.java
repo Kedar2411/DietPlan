@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Foodlist extends AppCompatActivity {
+public class FoodlistActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class Foodlist extends AppCompatActivity {
 
     public void gotoactivity_addfood(View v)
     {
-        Intent ActivityPage = new Intent(this, Addfood.class);
+        Intent ActivityPage = new Intent(this, AddfoodActivity.class);
         startActivity(ActivityPage);
     }
 }
