@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -22,7 +23,8 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity
 {
-
+    TextView register;
+    Button regi;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,13 +53,25 @@ public class LoginActivity extends AppCompatActivity
         final EditText email = (EditText) findViewById(R.id.et_username);
         final EditText password = (EditText) findViewById(R.id.t_password);
         final Button Login = (Button) findViewById(R.id.login);
+        regi=(Button)findViewById(R.id.reg);
+
+        regi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplication(),RegisterActivity.class));
+            }
+        });
+
+        /*register=(TextView) findViewById(R.id.t_register);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(),RegisterActivity.class));
+
+            }
+        });*/
 
 
-
-        EditText a=(EditText)findViewById(R.id.et_username);
-        String str=email.getText().toString();
-        EditText b=(EditText)findViewById(R.id.t_password);
-        final String pass=password.getText().toString();
 
         //final String password1=helper.searchPass(str);
 
@@ -130,10 +144,12 @@ public class LoginActivity extends AppCompatActivity
                 return matcher.matches();
             }
 
-    public void gotoactivity_register(View v)
-    {
-        Intent ActivityPage = new Intent(this, RegisterActivity.class);
-        startActivity(ActivityPage);
+    //public void gotoactivity_register(View v)
+    //{
+      //  Intent ActivityPage = new Intent(this, RegisterActivity.class);
+       // startActivity(ActivityPage);
 
-    }
+    //}
+
+
 }
