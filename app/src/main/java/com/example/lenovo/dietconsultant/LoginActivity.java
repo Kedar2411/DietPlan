@@ -134,6 +134,6 @@ public class LoginActivity extends AppCompatActivity
     {
         Intent ActivityPage = new Intent(this, RegisterActivity.class);
         startActivity(ActivityPage);
-       // Toast.makeText(getApplicationContext(),"djavj",Toast.LENGTH_LONG).show();
+
     }
 }
