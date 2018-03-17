@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -32,7 +32,7 @@
         <activity android:name=".FoodlistActivity" />
         <activity android:name=".RequestActivity" />
         <activity android:name=".AddfoodActivity" />
-        <activity android:name=".AddDietActivity"></activity>
+        <activity android:name=".AddDietActivity" />
     </application>
 
 </manifest>
