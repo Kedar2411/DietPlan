@@ -24,8 +24,8 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-
-    Button register, Login;
+    TextView register;
+    Button  Login;
     EditText email, password;
 
     @Override
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.t_password);
         Login = (Button) findViewById(R.id.login);
 
-        register = (Button) findViewById(R.id.t_register1);
+        register = (TextView) findViewById(R.id.t_register1);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

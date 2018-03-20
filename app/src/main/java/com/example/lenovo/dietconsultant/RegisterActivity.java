@@ -5,10 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -56,6 +60,10 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     @ConfirmPassword
     EditText cnpassword;
 
+    /*@NotEmpty
+    Spinner spinner;
+*/
+    ArrayAdapter<CharSequence> adapter;
 
     Button register;
    /* RadioButton male, female;
@@ -70,6 +78,25 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
+
+
+      /* spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+           @Override
+           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+               Toast.makeText(getBaseContext(),adapterView.getItemIdAtPosition(i)+"Selected",Toast.LENGTH_LONG).show();
+           }
+
+           @Override
+           public void onNothingSelected(AdapterView<?> adapterView) {
+
+           }
+       });*/
+
+        /*adapter=ArrayAdapter.createFromResource(this,R.array.Select_Height,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        *//*spinner.setAdapter(adapter);
+        spinner=findViewById(R.id.ht_spinner);*/
         register = findViewById(R.id.t_register);
         email = findViewById(R.id.email);
         cpassword = findViewById(R.id.cpassword);
@@ -77,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         name=findViewById(R.id.name);
         age=findViewById(R.id.age);
         weight=findViewById(R.id.weight);
-        height=findViewById(R.id.height);
+       height=findViewById(R.id.et_height);
         phone=findViewById(R.id.phone);
         /*rg=findViewById(R.id.radiogroup);*/
 

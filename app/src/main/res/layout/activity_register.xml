@@ -72,20 +72,23 @@
         <TextView
             android:layout_width="355dp"
             android:layout_height="38dp"
+            android:layout_alignParentLeft="true"
             android:text="Height"
             android:textSize="30sp"
             android:textStyle="bold" />
 
+
         <EditText
-            android:id="@+id/height"
+            android:id="@+id/et_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#11000000"
             android:ems="10"
+            android:background="#11000000"
             android:hint="Height"
-            android:inputType="number"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:inputType="textPersonName"
+            />
 
         <TextView
             android:id="@+id/gender"

@@ -7,8 +7,9 @@
     android:background="@color/backgroundcolor"
     tools:context="com.example.lenovo.dietconsultant.ProfileActivity">
 
+
     <Button
-        android:id="@+id/dplan"
+        android:id="@+id/btn_deitpln"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
@@ -17,7 +18,6 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/ripple_effect"
         android:text="Diet Plan"
-        android:onClick="gotoactivity_diet_plan"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.197" />
 
     <Button
-        android:id="@+id/bmi"
+        android:id="@+id/btn_bmi"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.366" />
 
     <Button
-        android:id="@+id/mprofile"
+        android:id="@+id/btn_mprofile"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
@@ -57,7 +57,6 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/ripple_effect"
         android:text="My Profile"
-        android:onClick="gotoactivity_my_profile"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="25sp"
         android:visibility="visible"
@@ -68,7 +67,7 @@
         app:layout_constraintVertical_bias="0.531" />
 
     <Button
-        android:id="@+id/fb"
+        android:id="@+id/btn_fb"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
@@ -76,7 +75,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/ripple_effect"
-        android:onClick="gotoactivity_feed_back"
         android:text="FeedBack"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="25sp"
@@ -86,5 +84,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.7" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Logout"
+        android:background="@drawable/ripple_effect"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.982" />
 
 </android.support.constraint.ConstraintLayout>
