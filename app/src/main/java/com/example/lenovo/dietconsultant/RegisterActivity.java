@@ -1,6 +1,7 @@
 package com.example.lenovo.dietconsultant;
 
 import android.content.Intent;
+import android.location.Address;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,17 +61,9 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     @ConfirmPassword
     EditText cnpassword;
 
-    /*@NotEmpty
-    Spinner spinner;
-*/
-    ArrayAdapter<CharSequence> adapter;
-
     Button register;
-   /* RadioButton male, female;
 
-    @NotEmpty
-    RadioGroup rg;
-*/
+
     Validator validator;
 
     @Override
@@ -81,22 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
 
 
 
-      /* spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-           @Override
-           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               Toast.makeText(getBaseContext(),adapterView.getItemIdAtPosition(i)+"Selected",Toast.LENGTH_LONG).show();
-           }
 
-           @Override
-           public void onNothingSelected(AdapterView<?> adapterView) {
-
-           }
-       });*/
-
-        /*adapter=ArrayAdapter.createFromResource(this,R.array.Select_Height,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        *//*spinner.setAdapter(adapter);
-        spinner=findViewById(R.id.ht_spinner);*/
         register = findViewById(R.id.t_register);
         email = findViewById(R.id.email);
         cpassword = findViewById(R.id.cpassword);
@@ -106,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         weight=findViewById(R.id.weight);
        height=findViewById(R.id.et_height);
         phone=findViewById(R.id.phone);
-        /*rg=findViewById(R.id.radiogroup);*/
+
 
         validator = new Validator(this);
         validator.setValidationListener(this);
@@ -116,65 +94,6 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
             @Override
             public void onClick(View view) {
                 validator.validate();
-            }
-
-
-            private boolean registerCpassword(String cpassword) {
-                if (cpassword != null && cpassword.length() > 8) {
-                    return true;
-                } else {
-                    return false;
-                }
-
-            }
-
-            private boolean registerEmail(String email) {
-                String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[_A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-
-                Pattern pattern = Pattern.compile(emailPattern);
-                Matcher matcher = pattern.matcher(email);
-
-                return matcher.matches();
-            }
-
-            private boolean registerMono(String mono) {
-                if (mono != null && mono.length() == 10) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            private boolean registerHeight(String height) {
-                if (height != null && height.length() > 0 && height.length() <= 3) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            private boolean registerWeight(String weight) {
-                if (weight != null && weight.length() > 0 && weight.length() <= 3) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            private boolean registerAge(String age) {
-                if (age != null && age.length() > 0 && age.length() <= 3) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            private boolean registerName(String name) {
-                if (name != null && name.length() > 0 && name.length() <= 15) {
-                    return true;
-                } else {
-                    return false;
-                }
             }
         });
 
@@ -205,6 +124,9 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         user.setProperty("weight",weightField);
         user.setProperty("height",heightField);
         user.setProperty("phone",phoneField);
+
+        
+
 
         Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
             public void handleResponse(BackendlessUser registeredUser) {

@@ -113,12 +113,6 @@ public class LoginActivity extends AppCompatActivity {
         return matcher.matches();
     }
 
-    //public void gotoactivity_register(View v)
-    //{
-    //  Intent ActivityPage = new Intent(this, RegisterActivity.class);
-    // startActivity(ActivityPage);
-
-    //}
 
 
 }

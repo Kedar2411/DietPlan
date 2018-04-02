@@ -27,12 +27,13 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".DietPlanActivity" />
-        <activity android:name=".MyProfileActivity" />
         <activity android:name=".FeedBackActivity" />
         <activity android:name=".FoodlistActivity" />
         <activity android:name=".RequestActivity" />
         <activity android:name=".AddfoodActivity" />
         <activity android:name=".AddDietActivity" />
+        <activity android:name=".UpdationActivity" />
+        <activity android:name=".UserProfileActivity"></activity>
     </application>
 
 </manifest>
