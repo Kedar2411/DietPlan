@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.110000014" />
 
     <Spinner
-        android:id="@+id/spinner6"
+        android:id="@+id/spn_fruits"
         android:layout_width="283dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"
@@ -79,7 +79,7 @@
         app:layout_constraintVertical_bias="0.22000003" />
 
     <Spinner
-        android:id="@+id/spinner7"
+        android:id="@+id/spn_vegitables"
         android:layout_width="283dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"
@@ -113,7 +113,7 @@
         app:layout_constraintVertical_bias="0.32" />
 
     <Spinner
-        android:id="@+id/spinner8"
+        android:id="@+id/spn_juice"
         android:layout_width="283dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"
@@ -147,7 +147,7 @@
         app:layout_constraintVertical_bias="0.42000002" />
 
     <Spinner
-        android:id="@+id/spinner9"
+        android:id="@+id/spn_rice"
         android:layout_width="283dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"
@@ -181,7 +181,7 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <Spinner
-        android:id="@+id/spinner10"
+        android:id="@+id/spn_roti"
         android:layout_width="283dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"
@@ -215,7 +215,7 @@
         app:layout_constraintVertical_bias="0.62" />
 
     <Spinner
-        android:id="@+id/spinner11"
+        android:id="@+id/spn_salad"
         android:layout_width="283dp"
         android:layout_height="33dp"
         android:layout_marginBottom="8dp"

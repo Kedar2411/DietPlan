@@ -33,7 +33,9 @@
         <activity android:name=".AddfoodActivity" />
         <activity android:name=".AddDietActivity" />
         <activity android:name=".UpdationActivity" />
-        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".ViewFeedbackActivity" />
+        <activity android:name=".ViewRequestActivity"></activity>
     </application>
 
 </manifest>

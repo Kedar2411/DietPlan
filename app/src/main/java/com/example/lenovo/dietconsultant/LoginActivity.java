@@ -24,9 +24,10 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView register;
+    TextView register,recoverpass;
     Button  Login;
     EditText email, password;
+    public static String pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.t_password);
         Login = (Button) findViewById(R.id.login);
 
+
+
         register = (TextView) findViewById(R.id.t_register1);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,13 +59,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String emailField=email.getText().toString();
-                String passwoedField=password.getText().toString();
+                final String emailField=email.getText().toString();
+                final String passwordField=password.getText().toString();
 
 
-                Backendless.UserService.login(emailField, passwoedField, new AsyncCallback<BackendlessUser>() {
+                Backendless.UserService.login(emailField, passwordField, new AsyncCallback<BackendlessUser>() {
                     @Override
                     public void handleResponse(BackendlessUser response) {
+                        pass = passwordField;
                         Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getApplication(), ProfileActivity.class));
                     }
@@ -85,12 +89,35 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        recoverpass=findViewById(R.id.t_recoverpass);
+        recoverpass.setOnClickListener(new View.OnClickListener() {
+
+
+
+            String emailstr= email.getText().toString();
+            @Override
+            public void onClick(View view) {
+                Backendless.UserService.restorePassword(emailstr, new AsyncCallback<Void>() {
+                    @Override
+                    public void handleResponse(Void response) {
+                        Toast.makeText(getApplicationContext(),"Recover link has been sent to registered email...!!",Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void handleFault(BackendlessFault fault) {
+                        Toast.makeText(getApplicationContext(),"Failed to recover...!!",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     private int validateAdmin(String email, String password) {
         if (email.isEmpty() || password.isEmpty()) {
             return 0;
-        } else if (email.equals("admin@gmail.com") && password.equals("admin1234")) {
+        } else if (email.equals("admin@gmail.com") && password.equals("Admin123#")) {
             return 1;
         }
         return 0;

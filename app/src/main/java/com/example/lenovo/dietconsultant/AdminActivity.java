@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class AdminActivity extends AppCompatActivity {
-    Button Food,Diet;
+    Button Food,Diet,feedback,c_req;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +15,8 @@ public class AdminActivity extends AppCompatActivity {
 
         Diet=(Button)findViewById(R.id.add_diet);
         Food=(Button)findViewById(R.id.food);
+        feedback =(Button)findViewById(R.id.btn_fb);
+        c_req=findViewById(R.id.c_req);
 
         Food.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,5 +34,19 @@ public class AdminActivity extends AppCompatActivity {
         });
 
 
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ViewFeedbackActivity.class));
+            }
+        });
+
+
+        c_req.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ViewRequestActivity.class));
+            }
+        });
     }
 }

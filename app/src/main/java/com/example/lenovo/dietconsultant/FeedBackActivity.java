@@ -29,7 +29,7 @@ import static com.loopj.android.http.AsyncHttpClient.LOG_TAG;
 public class FeedBackActivity extends AppCompatActivity {
 
 
-    EditText feedback;
+    EditText feedback,name,email;
     Button submit;
 
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
@@ -39,7 +39,8 @@ public class FeedBackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed_back);
 
-
+        name=findViewById(R.id.name);
+        email=findViewById(R.id.email);
         feedback = findViewById(R.id.et_feedback);
         submit = findViewById(R.id.btn_submit);
 
@@ -52,10 +53,15 @@ public class FeedBackActivity extends AppCompatActivity {
 
 
                     String feedbackString = feedback.getText().toString();
+                    String nameString=name.getText().toString();
+                    String mailString=email.getText().toString();
                     if (feedbackString != null) {
 
                         JSONObject jsonParams = new JSONObject();
                         jsonParams.put("feedback", feedbackString);
+                        jsonParams.put("name",nameString);
+                        jsonParams.put("email",mailString);
+
 
                         StringEntity entity = new StringEntity(jsonParams.toString());
 

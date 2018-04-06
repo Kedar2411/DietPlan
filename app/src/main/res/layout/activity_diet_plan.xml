@@ -25,76 +25,6 @@
             android:theme="@android:style/Theme.Black">
 
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Status:-"
-                android:textColor="@android:color/widget_edittext_dark"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.025"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.014" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="350dp"
-                android:layout_height="27dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.023" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="BMI:-"
-                android:textColor="@android:color/widget_edittext_dark"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="27dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.103" />
-
-            <TextView
                 android:id="@+id/textView6"
                 android:layout_width="165dp"
                 android:layout_height="44dp"
@@ -152,7 +82,7 @@
                 app:layout_constraintVertical_bias="0.294" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/tv_breakfast"
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:layout_marginBottom="8dp"
@@ -185,7 +115,7 @@
                 app:layout_constraintVertical_bias="0.499" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/tv_lunch"
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:layout_marginBottom="8dp"
@@ -218,7 +148,7 @@
                 app:layout_constraintVertical_bias="0.716" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tv_snacks"
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:layout_marginBottom="8dp"
@@ -251,7 +181,7 @@
                 app:layout_constraintVertical_bias="0.716" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/tv_dinner"
                 android:layout_width="match_parent"
                 android:layout_height="59dp"
                 android:layout_marginBottom="8dp"
@@ -265,11 +195,10 @@
                 app:layout_constraintVertical_bias="0.831" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/change_diet"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/ripple_effect"
-                android:onClick="gotoactivity_request"
                 android:text="Change My Diet"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="25sp"

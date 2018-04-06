@@ -2,6 +2,7 @@ package com.example.lenovo.dietconsultant;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +16,7 @@ import com.backendless.exceptions.BackendlessFault;
 public class UpdationActivity extends AppCompatActivity {
 
 
-    EditText age;
+    EditText age,weight,height;
     Button ok;
     BackendlessUser user;
 
@@ -25,40 +26,48 @@ public class UpdationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_updation);
 
         age=findViewById(R.id.et_upage);
+        weight=findViewById(R.id.et_upweight);
+        height=findViewById(R.id.et_upheight);
         ok=findViewById(R.id.btn_upok);
 
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String agefield=age.getText().toString();
-                String email=user.getEmail();
-                String password=user.getPassword();
+                 final String agefield = age.getText().toString();
+                final String weightfield = weight.getText().toString();
+                final String heightfield = height.getText().toString();
 
-                Backendless.UserService.login(email, password, new AsyncCallback<BackendlessUser>() {
-                    @Override
-                    public void handleResponse(BackendlessUser response) {
-                        user.setProperty("age",agefield);
 
-                        Backendless.UserService.update(user, new AsyncCallback<BackendlessUser>() {
-                            @Override
-                            public void handleResponse(BackendlessUser response) {
-                                Toast.makeText(UpdationActivity.this,"Updated",Toast.LENGTH_LONG).show();
-                            }
+                BackendlessUser currentUser = Backendless.UserService.CurrentUser();
 
-                            @Override
-                            public void handleFault(BackendlessFault fault) {
-                                Toast.makeText(UpdationActivity.this,"Failed",Toast.LENGTH_LONG).show();
-                                fault.getCode();
+               String email= currentUser.getEmail();
+               //String password= (String) currentUser.getProperty( "password" );
 
-                            }
-                        });
-                    }
+               Backendless.UserService.login(email, LoginActivity.pass , new AsyncCallback<BackendlessUser>() {
+                   @Override
+                   public void handleResponse(BackendlessUser response) {
+                       response.setProperty("age",agefield);
+                       response.setProperty("weight",weightfield);
+                       response.setProperty("height",heightfield);
+                       Backendless.UserService.update(response, new AsyncCallback<BackendlessUser>() {
+                           @Override
+                           public void handleResponse(BackendlessUser response) {
+                               Toast.makeText(getApplicationContext(),"updated",Toast.LENGTH_LONG).show();
+                           }
 
-                    @Override
-                    public void handleFault(BackendlessFault fault) {
-                        fault.getCode();
-                    }
-                });
+                           @Override
+                           public void handleFault(BackendlessFault fault) {
+                               Toast.makeText(getApplicationContext(),"failed to update",Toast.LENGTH_LONG).show();
+
+                           }
+                       });
+                   }
+
+                   @Override
+                   public void handleFault(BackendlessFault fault) {
+
+                   }
+               });
             }
         });
     }
