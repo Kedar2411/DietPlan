@@ -6,13 +6,13 @@ public class FeedbackInfo {
 
 
     /**
-     * feedback : mast
-     * created : 1522933874785
-     * name : Kedar
+     * feedback : great app
+     * created : 1522997713266
+     * name : Naufil
      * ownerId : null
      * updated : null
-     * email : kedarrsawant@gmail.com
-     * objectId : E18EA8B2-0865-E589-FF8B-C21EB780A000
+     * email : naufhil@gmail.com
+     * objectId : B6508469-E17F-04EE-FFD6-81C595B8B000
      * ___class : Feedback
      */
 

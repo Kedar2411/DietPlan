@@ -23,9 +23,9 @@ import cz.msebera.android.httpclient.Header;
 
 public class DietPlanActivity extends AppCompatActivity {
 
-    TextView breakfast,lunch,snacks,dinner;
+   /* TextView breakfast,lunch,snacks,dinner;
 
-    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+    AsyncHttpClient asyncHttpClient = new AsyncHttpClient();*/
     Button change;
 
     ArrayList<String> breakfast_str, lunch_str, snacks_str, dinner_str;
@@ -35,7 +35,7 @@ public class DietPlanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet_plan);
 
-        initViews();
+     /*   initViews();*/
 
         change=findViewById(R.id.change_diet);
 
@@ -46,7 +46,7 @@ public class DietPlanActivity extends AppCompatActivity {
             }
         });
 
-        asyncHttpClient.get(Defaults.DIET_URL, new AsyncHttpResponseHandler() {
+        /*asyncHttpClient.get(Defaults.DIET_URL, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
            Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_SHORT).show();
@@ -77,16 +77,16 @@ public class DietPlanActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"failed badly...",Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });*/
 
         }
 
-    private void initViews() {
+   /* private void initViews() {
         breakfast=findViewById(R.id.tv_breakfast);
         lunch=findViewById(R.id.tv_lunch);
         snacks=findViewById(R.id.tv_snacks);
         dinner=findViewById(R.id.tv_dinner);
-    }
+    }*/
    /* public void gotoactivity_foodlist(View v) {
         Intent ActivityPage = new Intent(this, FoodlistActivity.class);
         startActivity(ActivityPage);

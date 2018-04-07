@@ -5,12 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.lenovo.dietconsultant.R;
 
 import java.util.List;
 
-public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.FeedbackViewHolder> {
+public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.FeedbackViewHolder>  {
 
     private List<FeedbackInfo> feedbackInfoList;
 
@@ -19,26 +18,25 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
     }
 
     public class FeedbackViewHolder extends RecyclerView.ViewHolder {
-        public TextView feedback,name,email;
+        public TextView UserName;
+        public TextView UserEmail;
+        public TextView FeedbackBody;
 
         public FeedbackViewHolder(View view) {
             super(view);
-            feedback = (TextView) view.findViewById(R.id.feedback);
-            name=(TextView) view.findViewById(R.id.name);
-            email=(TextView) view.findViewById(R.id.email);
+            UserName = (TextView) view.findViewById(R.id.UserName);
+            UserEmail = (TextView) view.findViewById(R.id.UserEmail);
+            FeedbackBody=(TextView) view.findViewById(R.id.FeedbackBody);
         }
     }
 
 
     @Override
     public void onBindViewHolder(FeedbackViewHolder holder, int position) {
-        FeedbackInfo f = feedbackInfoList.get(position);
-
-        holder.feedback.setText(f.getFeedback());
-        holder.name.setText(f.getName());
-        holder.email.setText(f.getEmail());
-
-
+        final FeedbackInfo  e= feedbackInfoList.get(position);
+        holder.UserName.setText(e.getName());
+        holder.UserEmail.setText(e.getEmail());
+        holder.FeedbackBody.setText(e.getFeedback());
     }
 
     @Override
@@ -49,7 +47,8 @@ public class FeedbackAdapter extends RecyclerView.Adapter<FeedbackAdapter.Feedba
     @Override
     public FeedbackViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.layout, parent, false);
+                .inflate(R.layout.item3, parent, false);
         return new FeedbackViewHolder(v);
     }
+
 }

@@ -94,20 +94,24 @@ public class LoginActivity extends AppCompatActivity {
         recoverpass.setOnClickListener(new View.OnClickListener() {
 
 
+            final String emailField=email.getText().toString();
 
-            String emailstr= email.getText().toString();
+
             @Override
             public void onClick(View view) {
-                Backendless.UserService.restorePassword(emailstr, new AsyncCallback<Void>() {
+                final String emailField=email.getText().toString();
+
+                //Toast.makeText(getApplication(), "email"+emailField, Toast.LENGTH_LONG).show();
+
+                Backendless.UserService.restorePassword(emailField, new AsyncCallback <Void>() {
                     @Override
                     public void handleResponse(Void response) {
-                        Toast.makeText(getApplicationContext(),"Recover link has been sent to registered email...!!",Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(getApplicationContext(),"temporary password has been sent to your registered email..!!",Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void handleFault(BackendlessFault fault) {
-                        Toast.makeText(getApplicationContext(),"Failed to recover...!!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"failed to restore password",Toast.LENGTH_SHORT).show();
                     }
                 });
             }

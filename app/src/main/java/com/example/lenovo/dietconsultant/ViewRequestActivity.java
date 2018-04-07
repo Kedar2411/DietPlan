@@ -1,35 +1,32 @@
 package com.example.lenovo.dietconsultant;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
-import com.example.lenovo.dietconsultant.model.FeedbackAdapter;
-import com.example.lenovo.dietconsultant.model.FeedbackInfo;
 import com.example.lenovo.dietconsultant.model.RequestAdapter;
 import com.example.lenovo.dietconsultant.model.RequestInfo;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
-
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 import cz.msebera.android.httpclient.Header;
-
 public class ViewRequestActivity extends AppCompatActivity {
 
-
     RecyclerView rv;
+
+
+    RequestAdapter ca;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_request);
 
-        rv  = (RecyclerView) findViewById(R.id.recycler_view);
+        rv  = (RecyclerView) findViewById(R.id.rv);
+        rv.setHasFixedSize(true);
 
 
         AsyncHttpClient client = new AsyncHttpClient();
@@ -42,19 +39,22 @@ public class ViewRequestActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                 // called when response HTTP status is "200 OK"
-                List<RequestInfo> requestInfos = new ArrayList<>();
+
                 Gson gson = new Gson();
-                RequestInfo[] requestInfo = gson.fromJson(new String(response, StandardCharsets.UTF_8), RequestInfo[].class);
-                for (RequestInfo requestInfo1 :  requestInfo){
-                    requestInfos.add(requestInfo1);
+
+                List<RequestInfo> requestInfos = new ArrayList<>();
+                RequestInfo[] RequestInfo = gson.fromJson(new String(response, StandardCharsets.UTF_8), RequestInfo[].class);
+                for (RequestInfo RequestbackInfo1 :  RequestInfo){
+                    requestInfos.add(RequestbackInfo1);
                 }
 
                 LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
-                llm.setOrientation(LinearLayoutManager.VERTICAL);
                 rv.setLayoutManager(llm);
 
-                RequestAdapter ca = new RequestAdapter(requestInfos);
+                ca = new RequestAdapter(requestInfos);
                 rv.setAdapter(ca);
+
+
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
@@ -66,6 +66,7 @@ public class ViewRequestActivity extends AppCompatActivity {
                 // called when request is retried
             }
         });
-
     }
+
+
 }

@@ -116,13 +116,16 @@
 
     <Button
         android:id="@+id/btn_upok"
-        android:layout_width="116dp"
-        android:layout_height="66dp"
+        android:layout_width="173dp"
+        android:layout_height="67dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/ripple_effect"
         android:text="Update"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,15 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
-
 import com.example.lenovo.dietconsultant.R;
 
 import java.util.List;
-
-/**
- * Created by lenovo on 05-04-2018.
- */
 
 public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestViewHolder> {
 
@@ -23,26 +20,25 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
     }
 
     public class RequestViewHolder extends RecyclerView.ViewHolder {
-        public TextView time,type,sub;
+        public TextView UserName;
+        public TextView UserEmail;
+        public TextView FeedbackBody;
 
         public RequestViewHolder(View view) {
             super(view);
-            time = (TextView) view.findViewById(R.id.time);
-            type=(TextView) view.findViewById(R.id.type);
-            sub=(TextView) view.findViewById(R.id.sub);
+            UserName = (TextView) view.findViewById(R.id.UserName);
+            UserEmail = (TextView) view.findViewById(R.id.UserEmail);
+            FeedbackBody=(TextView) view.findViewById(R.id.FeedbackBody);
         }
     }
 
 
     @Override
     public void onBindViewHolder(RequestViewHolder holder, int position) {
-        RequestInfo f = requestInfoList.get(position);
-
-        holder.time.setText(f.getFood_time());
-        holder.type.setText(f.getFood_type());
-        holder.sub.setText(f.getSub_type());
-
-
+        final RequestInfo e= requestInfoList.get(position);
+        holder.UserName.setText(e.getFood_time());
+        holder.UserEmail.setText(e.getFood_type());
+        holder.FeedbackBody.setText(e.getSub_type());
     }
 
     @Override
@@ -56,4 +52,5 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
                 .inflate(R.layout.request, parent, false);
         return new RequestViewHolder(v);
     }
+
 }

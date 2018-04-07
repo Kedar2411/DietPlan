@@ -41,7 +41,6 @@ public class UpdationActivity extends AppCompatActivity {
                 BackendlessUser currentUser = Backendless.UserService.CurrentUser();
 
                String email= currentUser.getEmail();
-               //String password= (String) currentUser.getProperty( "password" );
 
                Backendless.UserService.login(email, LoginActivity.pass , new AsyncCallback<BackendlessUser>() {
                    @Override
