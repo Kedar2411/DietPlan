@@ -55,13 +55,13 @@ public class RequestActivity extends AppCompatActivity {
                     asyncHttpClient.post(getApplicationContext(), Defaults.REQUEST_URL, entity, "application/json", new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                            Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Request Sent Successfully..!!", Toast.LENGTH_SHORT).show();
 
                         }
 
                         @Override
                         public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                            Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Failed To Send Request", Toast.LENGTH_SHORT).show();
                         }
                     });
 

@@ -59,7 +59,7 @@ public class ViewRequestActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
                 // called when response HTTP status is "4XX" (eg. 401, 403, 404)
-                Toast.makeText(getApplicationContext() , errorResponse.toString(),Toast.LENGTH_LONG );
+                Toast.makeText(getApplicationContext() , errorResponse.toString(),Toast.LENGTH_SHORT );
             }
             @Override
             public void onRetry(int retryNo) {

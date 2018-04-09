@@ -101,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(this, "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "User Validated!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplication(), LoginActivity.class));
 
 
@@ -130,13 +130,14 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
 
         Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
             public void handleResponse(BackendlessUser registeredUser) {
-                Toast.makeText(RegisterActivity.this, "Registered Successfully.....!!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this, "Registered Successfully.....!!!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getApplication(), LoginActivity.class));
 
             }
 
             public void handleFault(BackendlessFault fault) {
-                String a = "dcs";
+                Toast.makeText(RegisterActivity.this, "Registeration Failed.....!!!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -144,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
 
     @Override
     public void onValidationFailed(List<ValidationError> errors) {
-        Toast.makeText(this, "No! XXXX!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Failed To Validate!", Toast.LENGTH_SHORT).show();
 
         for (ValidationError error : errors) {
             View view = error.getView();
@@ -154,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
             if (view instanceof EditText) {
                 ((EditText) view).setError(message);
             } else {
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             }
 
         }

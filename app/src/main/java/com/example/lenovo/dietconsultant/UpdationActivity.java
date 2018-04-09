@@ -51,12 +51,12 @@ public class UpdationActivity extends AppCompatActivity {
                        Backendless.UserService.update(response, new AsyncCallback<BackendlessUser>() {
                            @Override
                            public void handleResponse(BackendlessUser response) {
-                               Toast.makeText(getApplicationContext(),"updated",Toast.LENGTH_LONG).show();
+                               Toast.makeText(getApplicationContext(),"Profile Successfully Updated..!!!",Toast.LENGTH_SHORT).show();
                            }
 
                            @Override
                            public void handleFault(BackendlessFault fault) {
-                               Toast.makeText(getApplicationContext(),"failed to update",Toast.LENGTH_LONG).show();
+                               Toast.makeText(getApplicationContext(),"Failed To Update Profile..!!!",Toast.LENGTH_SHORT).show();
 
                            }
                        });
@@ -64,6 +64,7 @@ public class UpdationActivity extends AppCompatActivity {
 
                    @Override
                    public void handleFault(BackendlessFault fault) {
+                       Toast.makeText(getApplicationContext(),"Failed To Login..!!!",Toast.LENGTH_SHORT).show();
 
                    }
                });

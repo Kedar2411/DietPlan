@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                 finishAffinity();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-               Toast.makeText(getApplication(),"Logged Out..!!!",Toast.LENGTH_LONG).show();
+               Toast.makeText(getApplication(),"User Logged Out..!!!",Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class AdminActivity extends AppCompatActivity {
-    Button Food,Diet,feedback,c_req;
+    Button Food,Diet,feedback,c_req,logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class AdminActivity extends AppCompatActivity {
         Food=(Button)findViewById(R.id.food);
         feedback =(Button)findViewById(R.id.btn_fb);
         c_req=findViewById(R.id.c_req);
+        logout=findViewById(R.id.btn_logout);
 
         Food.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +48,15 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),ViewRequestActivity.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finishAffinity();
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                Toast.makeText(getApplication(),"Admin Logged Out..!!!",Toast.LENGTH_SHORT).show();
             }
         });
     }

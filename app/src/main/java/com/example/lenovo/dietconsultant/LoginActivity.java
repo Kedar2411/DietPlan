@@ -67,13 +67,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void handleResponse(BackendlessUser response) {
                         pass = passwordField;
-                        Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Logged In", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplication(), ProfileActivity.class));
                     }
 
                     @Override
                     public void handleFault(BackendlessFault fault) {
-                        Toast.makeText(LoginActivity.this, "Log In Failed", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Log In Failed", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                     password.setError("Invalid Password....!");
                     password.requestFocus();
                 } else if (validateAdmin(email.getText().toString(), password.getText().toString()) == 1) {
-                    Toast.makeText(getApplication(), "WELCOME ADMIN", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplication(), "WELCOME ADMIN", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplication(), AdminActivity.class));
                 }
             }
