@@ -17,7 +17,7 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class RequestActivity extends AppCompatActivity {
 
-    EditText foodtime,foodtype,subtype;
+    EditText foodtime;
     Button send;
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
@@ -26,37 +26,24 @@ public class RequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
 
-
-        foodtime=findViewById(R.id.food_time);
-        foodtype=findViewById(R.id.type_1);
-        subtype=findViewById(R.id.sub_type);
+        foodtime=findViewById(R.id.change_request);
         send=findViewById(R.id.send);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String timeString=foodtime.getText().toString();
-                String typeString=foodtype.getText().toString();
-                String subString=subtype.getText().toString();
 
                 try {
-
-
-
-
                     JSONObject jsonParams = new JSONObject();
-                    jsonParams.put("food_time",timeString);
-                    jsonParams.put("food_type",typeString);
-                    jsonParams.put("sub_type",subString);
+                    jsonParams.put("request",timeString);
 
                     StringEntity entity = new StringEntity(jsonParams.toString());
-
 
                     asyncHttpClient.post(getApplicationContext(), Defaults.REQUEST_URL, entity, "application/json", new AsyncHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                             Toast.makeText(getApplicationContext(), "Request Sent Successfully..!!", Toast.LENGTH_SHORT).show();
-
                         }
 
                         @Override
@@ -64,7 +51,6 @@ public class RequestActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Failed To Send Request", Toast.LENGTH_SHORT).show();
                         }
                     });
-
 
                 } catch (Exception e) {
                     e.printStackTrace();

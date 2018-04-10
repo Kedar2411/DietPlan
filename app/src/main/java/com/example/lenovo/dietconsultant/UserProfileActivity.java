@@ -14,7 +14,6 @@ import com.backendless.BackendlessUser;
 public class UserProfileActivity extends AppCompatActivity {
     Button go;
     TextView name,age,weight,height,phone;
-    BackendlessUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

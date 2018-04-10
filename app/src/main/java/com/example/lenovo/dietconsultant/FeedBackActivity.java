@@ -61,6 +61,8 @@ public class FeedBackActivity extends AppCompatActivity {
                         jsonParams.put("feedback", feedbackString);
                         jsonParams.put("name",nameString);
                         jsonParams.put("email",mailString);
+                       /*String namestr=(String) jsonParams.get("name");
+                        Toast.makeText(getApplication(),"name"+namestr,Toast.LENGTH_LONG).show();*/
 
 
                         StringEntity entity = new StringEntity(jsonParams.toString());
