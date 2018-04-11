@@ -11,9 +11,11 @@ import android.widget.Toast;
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 
+import java.util.Calendar;
+
 public class UserProfileActivity extends AppCompatActivity {
     Button go;
-    TextView name,age,weight,height,phone;
+    TextView name,age,weight,height,phone,demo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,7 @@ public class UserProfileActivity extends AppCompatActivity {
         weight=findViewById(R.id.tv_weight);
         height=findViewById(R.id.tv_height);
         phone=findViewById(R.id.tv_phone);
+        demo=findViewById(R.id.demo);
 
 
         BackendlessUser currentUser = Backendless.UserService.CurrentUser();
@@ -44,10 +47,17 @@ public class UserProfileActivity extends AppCompatActivity {
         String heightStr=(String) currentUser.getProperty("height");
         String phoneStr=(String) currentUser.getProperty("phone");
 
+        demo.setText(ageStr);
+
+          String inputYear=demo.getText().toString();
+        Calendar calendar=Calendar.getInstance();
+        int currentYear= calendar.get(Calendar.YEAR);
+        int currentAge=currentYear-Integer.parseInt(inputYear);
+        String crentAge=Integer.toString(currentAge);
 
 
         name.setText(nameStr);
-        age.setText(ageStr);
+        age.setText(crentAge);
         weight.setText(weightStr);
         height.setText(heightStr);
         phone.setText(phoneStr);

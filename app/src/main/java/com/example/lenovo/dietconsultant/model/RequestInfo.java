@@ -6,32 +6,33 @@ package com.example.lenovo.dietconsultant.model;
 
 public class RequestInfo {
 
+
     /**
-     * sub_type : apple
-     * created : 1522951867587
-     * food_type : fruit
+     * request : change my dinner
+     * created : 1523375023363
+     * name : pratul
      * ownerId : null
      * updated : null
-     * objectId : 07358E31-5EA2-2110-FF53-E58AAEC80F00
-     * food_time : lunch
+     * objectId : 65B0C959-4B0D-1330-FFB8-9C9876467900
+     * email : sawantpratul1012@gmail.com
      * ___class : request
      */
 
-    private String sub_type;
+    private String request;
     private long created;
-    private String food_type;
+    private String name;
     private Object ownerId;
     private Object updated;
     private String objectId;
-    private String food_time;
+    private String email;
     private String ___class;
 
-    public String getSub_type() {
-        return sub_type;
+    public String getRequest() {
+        return request;
     }
 
-    public void setSub_type(String sub_type) {
-        this.sub_type = sub_type;
+    public void setRequest(String request) {
+        this.request = request;
     }
 
     public long getCreated() {
@@ -42,12 +43,12 @@ public class RequestInfo {
         this.created = created;
     }
 
-    public String getFood_type() {
-        return food_type;
+    public String getName() {
+        return name;
     }
 
-    public void setFood_type(String food_type) {
-        this.food_type = food_type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Object getOwnerId() {
@@ -74,12 +75,12 @@ public class RequestInfo {
         this.objectId = objectId;
     }
 
-    public String getFood_time() {
-        return food_time;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFood_time(String food_time) {
-        this.food_time = food_time;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String get___class() {

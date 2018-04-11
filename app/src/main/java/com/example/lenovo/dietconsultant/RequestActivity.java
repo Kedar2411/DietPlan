@@ -17,7 +17,7 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class RequestActivity extends AppCompatActivity {
 
-    EditText foodtime;
+    EditText request,name,email;
     Button send;
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
@@ -26,17 +26,23 @@ public class RequestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
 
-        foodtime=findViewById(R.id.change_request);
+        request=findViewById(R.id.change_request);
+        name=findViewById(R.id.name);
+        email=findViewById(R.id.email);
         send=findViewById(R.id.send);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String timeString=foodtime.getText().toString();
+                String timeString=request.getText().toString();
+                String nameString=name.getText().toString();
+                String emailString=email.getText().toString();
 
                 try {
                     JSONObject jsonParams = new JSONObject();
                     jsonParams.put("request",timeString);
+                    jsonParams.put("name",nameString);
+                    jsonParams.put("email",emailString);
 
                     StringEntity entity = new StringEntity(jsonParams.toString());
 

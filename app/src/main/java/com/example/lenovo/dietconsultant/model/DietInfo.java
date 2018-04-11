@@ -8,15 +8,15 @@ public class DietInfo {
 
 
     /**
-     * lunch : Phulka
-     * created : 1523265793075
+     * lunch : Eat sprouts in lunch
+     * created : 1523454003298
      * ownerId : null
-     * snacks : guava
-     * breakfast : guava
+     * snacks : Eat 1 banana in snacks
+     * breakfast : Eat 2 apple in breakfast
      * updated : null
-     * dinner : guava
+     * dinner : Eat 2 phulka and vegetable
      * email : null
-     * objectId : 458E7D13-596D-0AA3-FFCC-E03E23F99500
+     * objectId : 62FAFFD0-EC9A-386E-FF31-B392DF184000
      * ___class : Diet
      */
 

@@ -19,6 +19,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
         this.requestInfoList = requestInfoList;
     }
 
+
     public class RequestViewHolder extends RecyclerView.ViewHolder {
         public TextView UserName;
         public TextView UserEmail;
@@ -36,9 +37,9 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
     @Override
     public void onBindViewHolder(RequestViewHolder holder, int position) {
         final RequestInfo e= requestInfoList.get(position);
-        holder.UserName.setText(e.getFood_time());
-        holder.UserEmail.setText(e.getFood_type());
-        holder.FeedbackBody.setText(e.getSub_type());
+        holder.UserName.setText(e.getRequest());
+        holder.UserEmail.setText(e.getName());
+        holder.FeedbackBody.setText(e.getEmail());
     }
 
     @Override

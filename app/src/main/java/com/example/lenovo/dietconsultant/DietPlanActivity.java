@@ -32,12 +32,10 @@ import cz.msebera.android.httpclient.Header;
 
 public class DietPlanActivity extends AppCompatActivity {
 
-   TextView breakfast,lunch,snacks,dinner,user_list;
+   TextView breakfast,lunch,snacks,dinner;
 
     AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
     Button change;
-    ArrayList<String> breakfast_str,lunch_str,snacks_str,dinner_str;
-   // ArrayList<String> user_str=new ArrayList <>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,36 +62,8 @@ public class DietPlanActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 DietInfo[] dietInfos1 = gson.fromJson(new String(responseBody, StandardCharsets.UTF_8), DietInfo[].class);
 
-                for (DietInfo dietInfo : dietInfos1){
-
-
-                    /*breakfast.setText(dietInfo.getBreakfast());
-                    lunch.setText(dietInfo.getLunch());
-                    snacks.setText(dietInfo.getSnacks());
-                    dinner.setText(dietInfo.getDinner());
-
-*/
-                   /* breakfast_str.add(dietInfo.getBreakfast());
-                    lunch_str.add(dietInfo.getLunch());
-                    snacks_str.add(dietInfo.getSnacks());
-                    dinner_str.add(dietInfo.getDinner());*/
-                   // user_str.add((String) dietInfo.getEmail());
-
-
-
-                   /* BackendlessUser currentuser=Backendless.UserService.CurrentUser();
-                     String newuser=(String)currentuser.getEmail();
-                    String user=(String)(dietInfo.getEmail());
-*/
-                   /* JSONObject jsonParams = new JSONObject();
-                    try {
-                        String namestr=(String) jsonParams.get("email");
-                        Toast.makeText(getApplicationContext(),"name:-"+namestr,Toast.LENGTH_LONG).show();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }*/
-
-                   // if (Objects.equals(user, newuser))
+                for (DietInfo dietInfo : dietInfos1)
+                {
 
                       breakfast.setText(dietInfo.getBreakfast());
                       lunch.setText(dietInfo.getLunch());
@@ -101,11 +71,7 @@ public class DietPlanActivity extends AppCompatActivity {
 
                       dinner.setText(dietInfo.getDinner());
 
-
-
                 }
-
-
 
             }
 

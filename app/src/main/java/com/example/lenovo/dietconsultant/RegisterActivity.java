@@ -29,12 +29,13 @@ import com.mobsandgeeks.saripaar.annotation.Email;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity implements Validator.ValidationListener {
-
 
     @NotEmpty
     EditText  phone;
@@ -85,7 +86,6 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
        height=findViewById(R.id.et_height);
         phone=findViewById(R.id.phone);
 
-
         validator = new Validator(this);
         validator.setValidationListener(this);
 
@@ -93,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 validator.validate();
             }
         });
@@ -103,6 +104,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
     public void onValidationSucceeded() {
         Toast.makeText(this, "User Validated!", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(getApplication(), LoginActivity.class));
+
 
 
 
@@ -145,7 +147,7 @@ public class RegisterActivity extends AppCompatActivity implements Validator.Val
 
     @Override
     public void onValidationFailed(List<ValidationError> errors) {
-        Toast.makeText(this, "Failed To Validate!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Failed to Validate!", Toast.LENGTH_SHORT).show();
 
         for (ValidationError error : errors) {
             View view = error.getView();
